@@ -19,3 +19,12 @@ This project is a simple, professional authentication app built with **React**, 
 1. Clone the repository:
    ```bash
    git clone https://github.com/<your-username>/react-auth-app.git
+
+## Live Preview
+
+Check out the live app here:  
+[🌐 View Live Demo](https://auth-details.netlify.app/signup)
+
+
+
+---
