@@ -25,7 +25,7 @@ This project is a simple, professional authentication app built with **React**, 
 Check out the live app here:  
 [🌐 View Live Demo](https://react-auth-app.vercel.app/signup)
 
-https://react-auth-app.vercel.app/signup
+https://react-auth-app.vercel.app/
 
 
 
