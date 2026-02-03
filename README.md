@@ -23,7 +23,7 @@ This project is a simple, professional authentication app built with **React**, 
 ## Live Preview
 
 Check out the live app here:  
-[🌐](https://react-auth-app.vercel.app/)
+https://react-auth-app.vercel.app/
 
 
 
