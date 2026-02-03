@@ -4,17 +4,17 @@ import { toast } from "react-toastify";
 import Navbar from "./components/Navbar";
 
 export default function Login() {
-  const navigate = useNavigate();
+  const navigate = useNavigate();// For redirecting after login
   const [form, setForm] = useState({ email: "", password: "" });
-
+// Handle login button click
   const handleLogin = () => {
-    const user = JSON.parse(localStorage.getItem("user"));
+    const user = JSON.parse(localStorage.getItem("user"));// Get saved user from localStorage
 
     if (!form.email || !form.password) {
       toast.error("All fields are required");
       return;
     }
-
+    // Check credentials
     if (
       user?.email === form.email &&
       user?.password === form.password
@@ -22,7 +22,7 @@ export default function Login() {
       localStorage.setItem("isLoggedIn", "true");
       toast.success("Login successful");
 
-      setTimeout(() => navigate("/home"), 1500);
+      setTimeout(() => navigate("/home"), 1500);// Redirect to home after 1.5 seconds
     } else {
       toast.error("Invalid email or password");
     }
@@ -57,7 +57,7 @@ export default function Login() {
           >
           Login
         </button>
-
+        {/* Link to Signup page */}
         <p className="text-xs text-center text-gray-400 mt-4">
           Don’t have an account?
           <Link to="/signup" className="text-white underline ml-1">
