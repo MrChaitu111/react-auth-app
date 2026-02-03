@@ -4,14 +4,17 @@ import { toast } from "react-toastify";
 import Navbar from "./components/Navbar";
 import { FiEye, FiEyeOff } from "react-icons/fi"; // Eye icons
 
+// Function to validate password strength
 const isValidPassword = (password) => {
+  // Minimum 8 chars, at least 1 uppercase, 1 lowercase, 1 number
   const regex =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/;
   return regex.test(password);
 };
 
+ 
 export default function Signup() {
-  const navigate = useNavigate();
+  const navigate = useNavigate();// React Router navigation
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -19,22 +22,27 @@ export default function Signup() {
     confirmPassword: "",
   });
 
+  // State for show/hide password toggle
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
+  // Function to handle Signup button click
   const handleSignup = () => {
     const { name, email, password, confirmPassword } = form;
 
+    // Validate empty fields
     if (!name || !email || !password || !confirmPassword) {
       toast.error("All fields are required");
       return;
     }
 
+ // Validate matching passwords
     if (password !== confirmPassword) {
       toast.error("Passwords do not match");
       return;
     }
 
+    // Validate password strength
     if (!isValidPassword(password)) {
       toast.error(
         "Password must be 8 chars, uppercase, lowercase & number"
@@ -42,18 +50,19 @@ export default function Signup() {
       return;
     }
 
+// Save user to localStorage (mock authentication)
     localStorage.setItem(
       "user",
       JSON.stringify({ name, email, password })
     );
-
+// Navigate to login page after 1.5 seconds
     toast.success("Signup successful 🎉");
     setTimeout(() => navigate("/login"), 1500);
   };
 
   return (
     <>
-      <Navbar />
+      <Navbar />{/* Navigation bar component */}
       <div className="min-h-screen flex items-center justify-center bg-black">
         <div className="w-95 border border-neutral-800 rounded-2xl p-8">
           <h1 className="text-2xl font-light text-center mb-8 text-white">
@@ -119,7 +128,7 @@ export default function Signup() {
           >
             Sign up
           </button>
-
+          {/* Link to Login page */}
           <p className="text-xs text-neutral-400 text-center mt-6">
             Already have an account?
             <Link to="/login" className="underline text-white ml-1">
@@ -131,3 +140,4 @@ export default function Signup() {
     </>
   );
 }
+
