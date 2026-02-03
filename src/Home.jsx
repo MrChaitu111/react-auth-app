@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 export default function Home() {
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user"));
-
+  // Handle logout
   const handleLogout = () => {
-    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("isLoggedIn");// Redirect to login if not authenticated
     navigate("/login");
   };
 
