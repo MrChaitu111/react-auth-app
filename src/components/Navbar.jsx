@@ -19,7 +19,7 @@ export default function Navbar() {
       </Link>
 
       <div className="flex gap-6 items-center text-sm">
-        {/* ✅ Logout only on Home & when logged in */}
+        {/*  Logout only on Home & when logged in */}
         {isLoggedIn && location.pathname === "/home" ? (
           <>
             <span className="text-neutral-400">
@@ -36,7 +36,7 @@ export default function Navbar() {
           </>
         ) : (
           <>
-            {/* ✅ Login page lo only links */}
+            {/* SignUp and Login page lo only links */}
             <Link to="/login" className="w-full  border border-white rounded-md px-4 py-1
         hover:bg-white hover:text-black transition text-white">
               Login
